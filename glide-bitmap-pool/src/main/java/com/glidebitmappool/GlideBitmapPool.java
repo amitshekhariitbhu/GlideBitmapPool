@@ -34,19 +34,19 @@ public class GlideBitmapPool {
         }
     }
 
-    public void initialize(int maxSize) {
-        sInstance = new GlideBitmapPool(maxSize);
-    }
-
-    public void initialize(int maxSize, Set<Bitmap.Config> allowedConfigs) {
-        sInstance = new GlideBitmapPool(maxSize, allowedConfigs);
-    }
-
     private static GlideBitmapPool getInstance() {
         if (sInstance == null) {
             sInstance = new GlideBitmapPool(DEFAULT_MAX_SIZE);
         }
         return sInstance;
+    }
+
+    public static void initialize(int maxSize) {
+        sInstance = new GlideBitmapPool(maxSize);
+    }
+
+    public static void initialize(int maxSize, Set<Bitmap.Config> allowedConfigs) {
+        sInstance = new GlideBitmapPool(maxSize, allowedConfigs);
     }
 
     public static void putBitmap(Bitmap bitmap) {
@@ -74,7 +74,6 @@ public class GlideBitmapPool {
             sInstance.bitmapPool.clearMemory();
             sInstance = null;
         }
-
     }
 
 }
