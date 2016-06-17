@@ -69,4 +69,12 @@ public class GlideBitmapPool {
         getInstance().bitmapPool.trimMemory(level);
     }
 
+    public static void shutDown() {
+        if (sInstance != null) {
+            sInstance.bitmapPool.clearMemory();
+            sInstance = null;
+        }
+
+    }
+
 }
