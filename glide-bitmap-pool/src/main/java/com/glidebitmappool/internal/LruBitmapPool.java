@@ -189,7 +189,6 @@ public class LruBitmapPool implements BitmapPool {
     private synchronized void trimToSize(int size) {
         while (currentSize > size) {
             final Bitmap removed = strategy.removeLast();
-            // TODO: This shouldn't ever happen, see #331.
             if (removed == null) {
                 if (Log.isLoggable(TAG, Log.WARN)) {
                     Log.w(TAG, "Size mismatch, resetting");
