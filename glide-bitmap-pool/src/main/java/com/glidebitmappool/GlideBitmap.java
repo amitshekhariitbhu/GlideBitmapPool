@@ -68,9 +68,13 @@ public class GlideBitmap {
             int width = targetOptions.outWidth / targetOptions.inSampleSize;
             int height = targetOptions.outHeight / targetOptions.inSampleSize;
             int byteCount = width * height * getBytesPerPixel(candidate.getConfig());
-            return byteCount <= candidate.getAllocationByteCount();
-        }
 
+            try {
+                return byteCount <= candidate.getAllocationByteCount();
+            } catch (NullPointerException e) {
+                return byteCount <= candidate.getHeight() * candidate.getRowBytes();
+            }
+        }
         // On earlier versions, the dimensions must match exactly and the inSampleSize must be 1
         return candidate.getWidth() == targetOptions.outWidth
                 && candidate.getHeight() == targetOptions.outHeight

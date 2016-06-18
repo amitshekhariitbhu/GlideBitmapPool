@@ -67,16 +67,6 @@ public class LruBitmapPool implements BitmapPool {
             throw new IllegalStateException("Cannot pool recycled bitmap");
         }
 
-//
-//        if (!bitmap.isMutable()) {
-//            Log.d(TAG, "isNotMutable");
-//        } else {
-//            Log.d(TAG, "isMutable");
-//        }
-//        Log.d(TAG, "strategy.getSize(bitmap) : " + strategy.getSize(bitmap));
-//        Log.d(TAG, "maxSize : " + maxSize);
-
-
         if (!bitmap.isMutable() || strategy.getSize(bitmap) > maxSize
                 || !allowedConfigs.contains(bitmap.getConfig())) {
             if (Log.isLoggable(TAG, Log.VERBOSE)) {
