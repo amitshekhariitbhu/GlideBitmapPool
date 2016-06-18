@@ -66,6 +66,17 @@ public class LruBitmapPool implements BitmapPool {
         if (bitmap.isRecycled()) {
             throw new IllegalStateException("Cannot pool recycled bitmap");
         }
+
+//
+//        if (!bitmap.isMutable()) {
+//            Log.d(TAG, "isNotMutable");
+//        } else {
+//            Log.d(TAG, "isMutable");
+//        }
+//        Log.d(TAG, "strategy.getSize(bitmap) : " + strategy.getSize(bitmap));
+//        Log.d(TAG, "maxSize : " + maxSize);
+
+
         if (!bitmap.isMutable() || strategy.getSize(bitmap) > maxSize
                 || !allowedConfigs.contains(bitmap.getConfig())) {
             if (Log.isLoggable(TAG, Log.VERBOSE)) {
@@ -101,14 +112,10 @@ public class LruBitmapPool implements BitmapPool {
     public Bitmap get(int width, int height, Bitmap.Config config) {
         Bitmap result = getDirtyOrNull(width, height, config);
         if (result != null) {
-            // Bitmaps in the pool contain random data that in some cases must be cleared for an image
-            // to be rendered correctly. we shouldn't force all consumers to independently erase the
-            // contents individually, so we do so here. See issue #131.
             result.eraseColor(Color.TRANSPARENT);
         } else {
             result = Bitmap.createBitmap(width, height, config);
         }
-
         return result;
     }
 

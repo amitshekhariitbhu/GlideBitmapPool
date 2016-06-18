@@ -1,4 +1,4 @@
-package com.glidebitmappool;
+package com.glidebitmappoolsample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
