@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         GlideBitmapPool.initialize(20 * 1024 * 1024);
     }
 
-    public void normal(View view) {
+    public void normalResource(View view) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -45,6 +45,19 @@ public class MainActivity extends AppCompatActivity {
                 bitmap9.recycle();
                 Bitmap bitmap10 = BitmapFactory.decodeResource(getResources(), R.drawable.test10);
                 bitmap10.recycle();
+            }
+        }).start();
+    }
+
+    public void normalFile(View view) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
+                for (int i = 1; i <= 10; i++) {
+                    Bitmap bitmap = BitmapFactory.decodeFile(path + i + ".png");
+                    bitmap.recycle();
+                }
             }
         }).start();
     }
@@ -91,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "test.png";
-                for (int i = 0; i < 10; i++) {
-                    Bitmap bitmap1 = GlideBitmap.decodeFile(path);
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
+                for (int i = 1; i <= 10; i++) {
+                    Bitmap bitmap1 = GlideBitmap.decodeFile(path + i + ".png");
                     GlideBitmapPool.putBitmap(bitmap1);
                 }
             }

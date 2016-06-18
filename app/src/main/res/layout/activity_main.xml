@@ -13,8 +13,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:onClick="normal"
-        android:text="normal" />
+        android:onClick="normalResource"
+        android:text="normal-resource" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:onClick="normalFile"
+        android:text="normal-file" />
 
     <Button
         android:layout_width="match_parent"
@@ -32,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:onClick="clearMemory"
-        android:text="clearMemory" />
+        android:text="clear-memory" />
 
 
 </LinearLayout>
