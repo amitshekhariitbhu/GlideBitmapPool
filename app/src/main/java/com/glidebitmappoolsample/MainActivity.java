@@ -7,7 +7,7 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.glidebitmappool.GlideBitmap;
+import com.glidebitmappool.GlideBitmapFactory;
 import com.glidebitmappool.GlideBitmapPool;
 
 import java.io.File;
@@ -67,34 +67,34 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Bitmap bitmap1 = GlideBitmap.decodeResource(getResources(), R.drawable.test1);
+                Bitmap bitmap1 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test1);
                 GlideBitmapPool.putBitmap(bitmap1);
 
-                Bitmap bitmap2 = GlideBitmap.decodeResource(getResources(), R.drawable.test2);
+                Bitmap bitmap2 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test2);
                 GlideBitmapPool.putBitmap(bitmap2);
 
-                Bitmap bitmap3 = GlideBitmap.decodeResource(getResources(), R.drawable.test3);
+                Bitmap bitmap3 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test3);
                 GlideBitmapPool.putBitmap(bitmap3);
 
-                Bitmap bitmap4 = GlideBitmap.decodeResource(getResources(), R.drawable.test4);
+                Bitmap bitmap4 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test4);
                 GlideBitmapPool.putBitmap(bitmap4);
 
-                Bitmap bitmap5 = GlideBitmap.decodeResource(getResources(), R.drawable.test5);
+                Bitmap bitmap5 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test5);
                 GlideBitmapPool.putBitmap(bitmap5);
 
-                Bitmap bitmap6 = GlideBitmap.decodeResource(getResources(), R.drawable.test6);
+                Bitmap bitmap6 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test6);
                 GlideBitmapPool.putBitmap(bitmap6);
 
-                Bitmap bitmap7 = GlideBitmap.decodeResource(getResources(), R.drawable.test7);
+                Bitmap bitmap7 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test7);
                 GlideBitmapPool.putBitmap(bitmap7);
 
-                Bitmap bitmap8 = GlideBitmap.decodeResource(getResources(), R.drawable.test8);
+                Bitmap bitmap8 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test8);
                 GlideBitmapPool.putBitmap(bitmap8);
 
-                Bitmap bitmap9 = GlideBitmap.decodeResource(getResources(), R.drawable.test9);
+                Bitmap bitmap9 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test9);
                 GlideBitmapPool.putBitmap(bitmap9);
 
-                Bitmap bitmap10 = GlideBitmap.decodeResource(getResources(), R.drawable.test10);
+                Bitmap bitmap10 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test10);
                 GlideBitmapPool.putBitmap(bitmap10);
             }
         }).start();
@@ -106,8 +106,21 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
                 for (int i = 1; i <= 10; i++) {
-                    Bitmap bitmap1 = GlideBitmap.decodeFile(path + i + ".png");
-                    GlideBitmapPool.putBitmap(bitmap1);
+                    Bitmap bitmap = GlideBitmapFactory.decodeFile(path + i + ".png");
+                    GlideBitmapPool.putBitmap(bitmap);
+                }
+            }
+        }).start();
+    }
+
+    public void downSample(View view) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
+                for (int i = 1; i <= 10; i++) {
+                    Bitmap bitmap = GlideBitmapFactory.decodeFile(path + i + ".png", 100, 100);
+                    GlideBitmapPool.putBitmap(bitmap);
                 }
             }
         }).start();

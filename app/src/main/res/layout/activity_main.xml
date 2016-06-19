@@ -37,6 +37,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:onClick="downSample"
+        android:text="down-sample" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:onClick="clearMemory"
         android:text="clear-memory" />
 
