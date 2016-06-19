@@ -9,7 +9,7 @@ no more GC calling again and again , hence smooth running application. It uses i
 on the supported android versions. All the version use-cases has been handled to optimize it better.
 
 * [Glide](https://github.com/bumptech/glide) and [Fresco](https://github.com/facebook/fresco) uses Bitmap Pool Concept to 
-load image efficiently.
+load images efficiently.
 
 ### Why use this library ?
 
