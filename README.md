@@ -5,8 +5,14 @@
 ### About Glide Bitmap Pool
 
 Glide Bitmap Pool is a memory management library for reusing the bitmap memory. As it reuses bitmap memory , so 
-no more GC calling again and again which leads to smooth running application. It uses inBitmap while decoding the bitmap
+no more GC calling again and again , hence smooth running application. It uses inBitmap while decoding the bitmap
 on the supported android versions. All the version use-cases has been handled to optimize it better.
+
+### Why use this library ?
+
+When we decode many images in android application, there is a continuous allocation and de-allocation of memory that leads
+to continuous GC calling , hence lagging application(not smooth). So this library reuses the previous allocated memory for new bitmap.
+It puts the bitmap in the pool to be reused later ,rather than recycling it.
 
 ## Requirements
 
@@ -48,6 +54,12 @@ GlideBitmapPool.putBitmap(bitmap);
 ### Getting the empty bitmap from the pool
 ```java
 Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
+```
+
+### Clearing or Trimming Memory
+```java
+GlideBitmapPool.clearMemory();
+GlideBitmapPool.trimMemory(level);
 ```
 
 ### Important
