@@ -28,6 +28,8 @@ few android version less than Kitkat only when we use inSampleSize = 1 , above t
 completely and few other issues.
 So , all these types of cases are handled in this library
 
+* [Detail Explanation can be found here](https://medium.com/@amitshekhar/how-to-use-bitmap-pool-in-android-56c71a55533c#.m41wqfk8h)
+
 ## Requirements
 
 Glide Bitmap Pool can be included in any Android or Java application. 
