@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Glide Bitmap Pool by amitshekhariitbhu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Glide Bitmap Pool</h1>
+      <h2 class="project-tagline">Glide Bitmap Pool is a memory management library for reusing the bitmap memory</h2>
+      <a href="https://github.com/amitshekhariitbhu/GlideBitmapPool" class="btn">View on GitHub</a>
+      <a href="https://github.com/amitshekhariitbhu/GlideBitmapPool/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/amitshekhariitbhu/GlideBitmapPool/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="glide-bitmap-pool" class="anchor" href="#glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Glide Bitmap Pool</h1>
+
+<p><a href="https://github.com/amitshekhariitbhu/AndroidNetworking/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a></p>
+
+<h3>
+<a id="about-glide-bitmap-pool" class="anchor" href="#about-glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About Glide Bitmap Pool</h3>
+
+<p>Glide Bitmap Pool is a memory management library for reusing the bitmap memory. As it reuses bitmap memory , so 
+no more GC calling again and again which leads to smooth running application. It uses inBitmap while decoding the bitmap
+on the supported android versions. All the version use-cases has been handled to optimize it better.</p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>Glide Bitmap Pool can be included in any Android or Java application. </p>
+
+<p>Glide Bitmap Pool supports Android 2.3 (Gingerbread) and later. </p>
+
+<h2>
+<a id="using-glide-bitmap-pool-in-your-application" class="anchor" href="#using-glide-bitmap-pool-in-your-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using Glide Bitmap Pool in your application</h2>
+
+<p>Add this in your build.gradle</p>
+
+<div class="highlight highlight-source-groovy"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.amitshekhar.android:glide-bitmap-pool:0.0.1<span class="pl-pds">'</span></span></pre></div>
+
+<p>Then initialize it in onCreate() Method of application class, :</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>initialize(<span class="pl-c1">10</span> <span class="pl-k">*</span> <span class="pl-c1">1024</span> <span class="pl-k">*</span> <span class="pl-c1">1024</span>); <span class="pl-c">// 10mb max memory size</span></pre></div>
+
+<h3>
+<a id="decoding-the-bitmap-from-file-path" class="anchor" href="#decoding-the-bitmap-from-file-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoding the bitmap from file path</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapFactory</span><span class="pl-k">.</span>decodeFile(filePath);</pre></div>
+
+<h3>
+<a id="decoding-the-bitmap-from-resources" class="anchor" href="#decoding-the-bitmap-from-resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoding the bitmap from resources</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap1 <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapFactory</span><span class="pl-k">.</span>decodeResource(getResources(), <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>testImage);</pre></div>
+
+<h3>
+<a id="decoding-the-down-sample-bitmap" class="anchor" href="#decoding-the-down-sample-bitmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoding the down sample bitmap</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapFactory</span><span class="pl-k">.</span>decodeFile(filePath,<span class="pl-c1">100</span>,<span class="pl-c1">100</span>);</pre></div>
+
+<h3>
+<a id="making-the-bitmap-available-for-recycle-or-reuse" class="anchor" href="#making-the-bitmap-available-for-recycle-or-reuse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Making the bitmap available for recycle or reuse</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>putBitmap(bitmap);</pre></div>
+
+<h3>
+<a id="getting-the-empty-bitmap-from-the-pool" class="anchor" href="#getting-the-empty-bitmap-from-the-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting the empty bitmap from the pool</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>getBitmap(width, height, config);</pre></div>
+
+<h3>
+<a id="important" class="anchor" href="#important" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Important</h3>
+
+<pre><code>// Do not use bitmap.recycle();
+// use GlideBitmapPool.putBitmap(bitmap); as it will put in the pool for further reuse.
+
+// Do not use Bitmap.create(width, height, config);
+// use GlideBitmapPool.getBitmap(width, height, config); as it returns from the pool that can be reused.
+</code></pre>
+
+<h3>
+<a id="credits-and-references" class="anchor" href="#credits-and-references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits and references</h3>
+
+<ul>
+<li>
+<a href="https://github.com/bumptech/glide">Glide</a> - As it uses the same bitmap pool that is used by <a href="https://github.com/bumptech/glide">Glide</a>
+</li>
+<li><a href="https://developer.android.com/training/displaying-bitmaps/manage-memory.html">Managing Bitmap Memory</a></li>
+<li><a href="https://developer.android.com/training/displaying-bitmaps/load-bitmap.html">Loading Large Bitmaps Efficiently</a></li>
+</ul>
+
+<h3>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h3>
+
+<ul>
+<li>More Optimization with further updates.</li>
+</ul>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+
+<pre><code>   Copyright (C) 2016 Amit Shekhar
+   Copyright (C) 2011 Android Open Source Project
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</code></pre>
+
+<h3>
+<a id="contributing-to-glide-bitmap-pool" class="anchor" href="#contributing-to-glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing to Glide Bitmap Pool</h3>
+
+<p>Just make pull request. You are in!</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/amitshekhariitbhu/GlideBitmapPool">Glide Bitmap Pool</a> is maintained by <a href="https://github.com/amitshekhariitbhu">amitshekhariitbhu</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
