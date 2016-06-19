@@ -30,7 +30,7 @@ install {
             packaging 'aar'
 
             name 'Glide Bitmap Pool'
-            description 'Glide Bitmap Pool is a memory management libray for reusing bitmap memory'
+            description 'Glide Bitmap Pool is a memory management library for reusing the bitmap memory'
 
             url siteUrl
 

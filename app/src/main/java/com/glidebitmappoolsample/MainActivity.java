@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        GlideBitmapPool.initialize(20 * 1024 * 1024);
+        GlideBitmapPool.initialize(10 * 1024 * 1024);
     }
 
     public void normalResource(View view) {
