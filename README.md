@@ -10,9 +10,20 @@ on the supported android versions. All the version use-cases has been handled to
 
 ### Why use this library ?
 
-When we decode many images in android application, there is a continuous allocation and de-allocation of memory that leads
-to continuous GC calling , hence lagging application(not smooth). So this library reuses the previous allocated memory for new bitmap.
-It puts the bitmap in the pool to be reused later ,rather than recycling it.
+An Image heavy Application decodes many images , so there will be continuous allocation and deallocation 
+of memory in application , and that results in very frequent calling of GC(Garbage Collector). And 
+finally because of very frequent calling of GC , the application UI freezes.
+Use Bitmap pool to avoid continuous allocation and deallocation of memory in application 
+and reduce GC overhead that will result in smooth running application.
+Suppose we have to load few bitmap in Android Application.
+When we load bitmapOne , it will allocate the memory for bitmapOne.
+Then if we don’t need bitmapOne , do not recycle bitmap (as if you recycle it it will make GC to be called) , 
+so use this bitmapOne as an inBitmap for bitmapTwo so that , the same memory can be reused for bitmapTwo.
+In this way , we can avoid continuous allocation and deallocation of memory in application and reduce GC overhead.
+But the problem is that there are few restrictions as android version less than Honeycomb does not supports it , 
+few android version less than Kitkat only when we use inSampleSize = 1 , above that it supports 
+completely and few other issues.
+So , all these types of cases are handled in this library
 
 ## Requirements
 
@@ -65,10 +76,10 @@ GlideBitmapPool.trimMemory(level);
 ### Important
 ```
 // Do not use bitmap.recycle();
-// use GlideBitmapPool.putBitmap(bitmap); as it will put in the pool for further reuse.
+// use GlideBitmapPool.putBitmap(bitmap); as it will put bitmap in the pool for further reuse.
 
 // Do not use Bitmap.create(width, height, config);
-// use GlideBitmapPool.getBitmap(width, height, config); as it returns from the pool that can be reused.
+// use GlideBitmapPool.getBitmap(width, height, config); as it returns bitmap from the pool that can be reused.
 ```
 
 ### Credits and references
