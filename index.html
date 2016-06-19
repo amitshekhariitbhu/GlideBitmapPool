@@ -28,8 +28,32 @@
 <a id="about-glide-bitmap-pool" class="anchor" href="#about-glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About Glide Bitmap Pool</h3>
 
 <p>Glide Bitmap Pool is a memory management library for reusing the bitmap memory. As it reuses bitmap memory , so 
-no more GC calling again and again which leads to smooth running application. It uses inBitmap while decoding the bitmap
+no more GC calling again and again , hence smooth running application. It uses inBitmap while decoding the bitmap
 on the supported android versions. All the version use-cases has been handled to optimize it better.</p>
+
+<ul>
+<li>
+<a href="https://github.com/bumptech/glide">Glide</a> and <a href="https://github.com/facebook/fresco">Fresco</a> uses Bitmap Pool Concept to 
+load images efficiently.</li>
+</ul>
+
+<h3>
+<a id="why-use-this-library-" class="anchor" href="#why-use-this-library-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why use this library ?</h3>
+
+<p>An Image heavy Application decodes many images , so there will be continuous allocation and deallocation 
+of memory in application , and that results in very frequent calling of GC(Garbage Collector). And 
+finally because of very frequent calling of GC , the application UI freezes.
+Use Bitmap pool to avoid continuous allocation and deallocation of memory in application 
+and reduce GC overhead that will result in smooth running application.
+Suppose we have to load few bitmap in Android Application.
+When we load bitmapOne , it will allocate the memory for bitmapOne.
+Then if we don’t need bitmapOne , do not recycle bitmap (as if you recycle it it will make GC to be called) , 
+so use this bitmapOne as an inBitmap for bitmapTwo so that , the same memory can be reused for bitmapTwo.
+In this way , we can avoid continuous allocation and deallocation of memory in application and reduce GC overhead.
+But the problem is that there are few restrictions as android version less than Honeycomb does not supports it , 
+few android version less than Kitkat only when we use inSampleSize = 1 , above that it supports 
+completely and few other issues.
+So , all these types of cases are handled in this library</p>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
@@ -75,13 +99,19 @@ on the supported android versions. All the version use-cases has been handled to
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>getBitmap(width, height, config);</pre></div>
 
 <h3>
+<a id="clearing-or-trimming-memory" class="anchor" href="#clearing-or-trimming-memory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clearing or Trimming Memory</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>clearMemory();
+<span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>trimMemory(level);</pre></div>
+
+<h3>
 <a id="important" class="anchor" href="#important" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Important</h3>
 
 <pre><code>// Do not use bitmap.recycle();
-// use GlideBitmapPool.putBitmap(bitmap); as it will put in the pool for further reuse.
+// use GlideBitmapPool.putBitmap(bitmap); as it will put bitmap in the pool for further reuse.
 
 // Do not use Bitmap.create(width, height, config);
-// use GlideBitmapPool.getBitmap(width, height, config); as it returns from the pool that can be reused.
+// use GlideBitmapPool.getBitmap(width, height, config); as it returns bitmap from the pool that can be reused.
 </code></pre>
 
 <h3>
@@ -100,6 +130,15 @@ on the supported android versions. All the version use-cases has been handled to
 
 <ul>
 <li>More Optimization with further updates.</li>
+</ul>
+
+<h3>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
+
+<ul>
+<li><a href="https://www.facebook.com/amit.shekhar.iitbhu">Facebook</a></li>
+<li><a href="https://twitter.com/amitiitbhu">Twitter</a></li>
+<li><a href="https://medium.com/@amitshekhar">Medium</a></li>
 </ul>
 
 <h3>
