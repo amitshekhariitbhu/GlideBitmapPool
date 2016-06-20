@@ -55,7 +55,7 @@ Bitmap bitmap = GlideBitmapFactory.decodeFile(filePath);
 
 ### Decoding the bitmap from resources
 ```java
-Bitmap bitmap1 = GlideBitmapFactory.decodeResource(getResources(), R.drawable.testImage);
+Bitmap bitmap = GlideBitmapFactory.decodeResource(getResources(), R.drawable.testImage);
 ```
 
 ### Decoding the down sample bitmap
@@ -77,6 +77,33 @@ Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ```java
 GlideBitmapPool.clearMemory();
 GlideBitmapPool.trimMemory(level);
+```
+
+### Migrating to Glide Bitmap Pool
+```java
+                // ------   decoding -------
+                
+                // old code 
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test1);
+                
+                // new code 
+                Bitmap bitmap = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test1);
+                
+                // ------   recycling ------- 
+                
+                // old code
+                bitmap.recycle();
+                
+                // new code
+                GlideBitmapPool.putBitmap(bitmap);
+                
+                //  ------   creating a bitmap -------
+                
+                // old code 
+                Bitmap bitmap = Bitmap.create(width, height, config);
+                
+                // new code
+                Bitmap bitmap = GlideBitmapPool.create(width, height, config);
 ```
 
 ### Important
