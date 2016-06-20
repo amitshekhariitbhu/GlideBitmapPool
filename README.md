@@ -20,7 +20,7 @@ Use Bitmap pool to avoid continuous allocation and deallocation of memory in app
 and reduce GC overhead that will result in smooth running application.
 Suppose we have to load few bitmap in Android Application.
 When we load bitmapOne , it will allocate the memory for bitmapOne.
-Then if we don’t need bitmapOne , do not recycle bitmap (as if you recycle it it will make GC to be called) , 
+Then if we don’t need bitmapOne , do not recycle bitmap (as if you recycle, it will make GC to be called) , 
 so use this bitmapOne as an inBitmap for bitmapTwo so that , the same memory can be reused for bitmapTwo.
 In this way , we can avoid continuous allocation and deallocation of memory in application and reduce GC overhead.
 But the problem is that there are few restrictions as android version less than Honeycomb does not supports it , 
