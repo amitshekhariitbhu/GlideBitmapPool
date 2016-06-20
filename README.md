@@ -103,7 +103,7 @@ GlideBitmapPool.trimMemory(level);
                 Bitmap bitmap = Bitmap.create(width, height, config);
                 
                 // new code
-                Bitmap bitmap = GlideBitmapPool.create(width, height, config);
+                Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ```
 
 ### Important
