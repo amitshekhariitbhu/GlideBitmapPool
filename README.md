@@ -1,5 +1,6 @@
 # Glide Bitmap Pool 
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Glide%20Bitmap%20Pool-blue.svg?style=flat)](http://android-arsenal.com/details/1/3740)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/amitshekhariitbhu/AndroidNetworking/blob/master/LICENSE)
 
 ### About Glide Bitmap Pool
