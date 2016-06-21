@@ -81,29 +81,29 @@ GlideBitmapPool.trimMemory(level);
 
 ### Migrating to Glide Bitmap Pool
 ```java
-                // ------   decoding -------
-                
-                // old code 
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test1);
-                
-                // new code 
-                Bitmap bitmap = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test1);
-                
-                // ------   recycling ------- 
-                
-                // old code
-                bitmap.recycle();
-                
-                // new code
-                GlideBitmapPool.putBitmap(bitmap);
-                
-                //  ------   creating a bitmap -------
-                
-                // old code 
-                Bitmap bitmap = Bitmap.create(width, height, config);
-                
-                // new code
-                Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
+// ------   decoding -------
+
+// old code 
+Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test1);
+
+// new code 
+Bitmap bitmap = GlideBitmapFactory.decodeResource(getResources(), R.drawable.test1);
+
+// ------   recycling ------- 
+
+// old code
+bitmap.recycle();
+
+// new code
+GlideBitmapPool.putBitmap(bitmap);
+
+//  ------   creating a bitmap -------
+
+// old code 
+Bitmap bitmap = Bitmap.create(width, height, config);
+
+// new code
+Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ```
 
 ### Important
