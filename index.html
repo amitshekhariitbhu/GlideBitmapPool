@@ -22,7 +22,8 @@
       <h1>
 <a id="glide-bitmap-pool" class="anchor" href="#glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Glide Bitmap Pool</h1>
 
-<p><a href="https://github.com/amitshekhariitbhu/AndroidNetworking/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a></p>
+<p><a href="http://android-arsenal.com/details/1/3740"><img src="https://img.shields.io/badge/Android%20Arsenal-Glide%20Bitmap%20Pool-blue.svg?style=flat" alt="Android Arsenal"></a>
+<a href="https://github.com/amitshekhariitbhu/AndroidNetworking/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License"></a></p>
 
 <h3>
 <a id="about-glide-bitmap-pool" class="anchor" href="#about-glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About Glide Bitmap Pool</h3>
@@ -33,7 +34,7 @@ on the supported android versions. All the version use-cases has been handled to
 
 <ul>
 <li>
-<a href="https://github.com/bumptech/glide">Glide</a> and <a href="https://github.com/facebook/fresco">Fresco</a> uses Bitmap Pool Concept to 
+<a href="https://github.com/bumptech/glide">Glide</a> , <a href="https://github.com/facebook/fresco">Fresco</a> and <a href="https://github.com/amitshekhariitbhu/AndroidNetworking">Android Networking</a> uses Bitmap Pool Concept to 
 load images efficiently.</li>
 </ul>
 
@@ -58,6 +59,11 @@ So , all these types of cases are handled in this library</p>
 <ul>
 <li><a href="https://medium.com/@amitshekhar/how-to-use-bitmap-pool-in-android-56c71a55533c#.m41wqfk8h">Detail Explanation can be found here</a></li>
 </ul>
+
+<h4>
+<a id="get-rid-of--gc_for_alloc-freed-1568k-23-free-37664k48844k-paused-141ms-total-143ms---whenever-you-see-this-log--your-application-is-lagging" class="anchor" href="#get-rid-of--gc_for_alloc-freed-1568k-23-free-37664k48844k-paused-141ms-total-143ms---whenever-you-see-this-log--your-application-is-lagging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GET RID OF : GC_FOR_ALLOC freed 1568K, 23% free 37664K/48844K, paused 141ms, total 143ms - (whenever you see this log , your application is lagging)</h4>
+
+<p><img src="https://raw.githubusercontent.com/amitshekhariitbhu/GlideBitmapPool/master/assets/gcsamplelog.png" width="500" height="150"></p>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
@@ -85,7 +91,7 @@ So , all these types of cases are handled in this library</p>
 <h3>
 <a id="decoding-the-bitmap-from-resources" class="anchor" href="#decoding-the-bitmap-from-resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoding the bitmap from resources</h3>
 
-<div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap1 <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapFactory</span><span class="pl-k">.</span>decodeResource(getResources(), <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>testImage);</pre></div>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapFactory</span><span class="pl-k">.</span>decodeResource(getResources(), <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>testImage);</pre></div>
 
 <h3>
 <a id="decoding-the-down-sample-bitmap" class="anchor" href="#decoding-the-down-sample-bitmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Decoding the down sample bitmap</h3>
@@ -107,6 +113,33 @@ So , all these types of cases are handled in this library</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>clearMemory();
 <span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>trimMemory(level);</pre></div>
+
+<h3>
+<a id="migrating-to-glide-bitmap-pool" class="anchor" href="#migrating-to-glide-bitmap-pool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Migrating to Glide Bitmap Pool</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-c">// ------   decoding -------</span>
+
+<span class="pl-c">// old code </span>
+<span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">BitmapFactory</span><span class="pl-k">.</span>decodeResource(getResources(), <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>test1);
+
+<span class="pl-c">// new code </span>
+<span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapFactory</span><span class="pl-k">.</span>decodeResource(getResources(), <span class="pl-smi">R</span><span class="pl-k">.</span>drawable<span class="pl-k">.</span>test1);
+
+<span class="pl-c">// ------   recycling ------- </span>
+
+<span class="pl-c">// old code</span>
+bitmap<span class="pl-k">.</span>recycle();
+
+<span class="pl-c">// new code</span>
+<span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>putBitmap(bitmap);
+
+<span class="pl-c">//  ------   creating a bitmap -------</span>
+
+<span class="pl-c">// old code </span>
+<span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">Bitmap</span><span class="pl-k">.</span>create(width, height, config);
+
+<span class="pl-c">// new code</span>
+<span class="pl-smi">Bitmap</span> bitmap <span class="pl-k">=</span> <span class="pl-smi">GlideBitmapPool</span><span class="pl-k">.</span>getBitmap(width, height, config);</pre></div>
 
 <h3>
 <a id="important" class="anchor" href="#important" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Important</h3>
