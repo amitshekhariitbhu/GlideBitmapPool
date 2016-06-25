@@ -121,10 +121,14 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
-                for (int i = 1; i <= 10; i++) {
-                    Bitmap bitmap = GlideBitmapFactory.decodeFile(path + i + ".png");
-                    GlideBitmapPool.putBitmap(bitmap);
+                try {
+                    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
+                    for (int i = 1; i <= 10; i++) {
+                        Bitmap bitmap = GlideBitmapFactory.decodeFile(path + i + ".png");
+                        GlideBitmapPool.putBitmap(bitmap);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
@@ -134,10 +138,14 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
-                for (int i = 1; i <= 10; i++) {
-                    Bitmap bitmap = GlideBitmapFactory.decodeFile(path + i + ".png", 100, 100);
-                    GlideBitmapPool.putBitmap(bitmap);
+                try {
+                    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "Download" + File.separator + "test";
+                    for (int i = 1; i <= 10; i++) {
+                        Bitmap bitmap = GlideBitmapFactory.decodeFile(path + i + ".png", 100, 100);
+                        GlideBitmapPool.putBitmap(bitmap);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
