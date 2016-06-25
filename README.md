@@ -31,7 +31,7 @@ So , all these types of cases are handled in this library
 
 * [Detail Explanation can be found here](https://medium.com/@amitshekhar/how-to-use-bitmap-pool-in-android-56c71a55533c#.m41wqfk8h)
 
-#### GET RID OF : GC_FOR_ALLOC freed 1568K, 23% free 37664K/48844K, paused 141ms, total 143ms
+#### GET RID OF : GC_FOR_ALLOC freed 1568K, 23% free 37664K/48844K, paused 141ms, total 143ms - (whenever you see this log , your application is lagging)
 
 <img src=https://raw.githubusercontent.com/amitshekhariitbhu/GlideBitmapPool/master/assets/gcsamplelog.png width=500 height=150 />
 
