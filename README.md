@@ -3,6 +3,8 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Glide%20Bitmap%20Pool-blue.svg?style=flat)](http://android-arsenal.com/details/1/3740)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/amitshekhariitbhu/GlideBitmapPool/blob/master/LICENSE)
 
+<img src=https://raw.githubusercontent.com/amitshekhariitbhu/GlideBitmapPool/master/assets/glidebitmappool.png width=1000 height=140 />
+
 ### About Glide Bitmap Pool
 
 Glide Bitmap Pool is a memory management library for reusing the bitmap memory. As it reuses bitmap memory , so 
