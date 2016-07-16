@@ -11,7 +11,7 @@ Glide Bitmap Pool is a memory management library for reusing the bitmap memory. 
 no more GC calling again and again , hence smooth running application. It uses inBitmap while decoding the bitmap
 on the supported android versions. All the version use-cases has been handled to optimize it better.
 
-* [Glide](https://github.com/bumptech/glide) , [Fresco](https://github.com/facebook/fresco) and [Android Networking](https://github.com/amitshekhariitbhu/Android-Networking) uses Bitmap Pool Concept to 
+* [Glide](https://github.com/bumptech/glide) , [Fresco](https://github.com/facebook/fresco) and [Fast Android Networking](https://github.com/amitshekhariitbhu/Fast-Android-Networking) uses Bitmap Pool Concept to 
 load images efficiently.
 
 ### Why use this library ?
