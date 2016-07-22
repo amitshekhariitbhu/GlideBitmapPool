@@ -129,8 +129,9 @@ Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ### TODO
 * More Optimization with further updates.
 
-### Contact
+### Contact - Let's become friend
 - [Twitter](https://twitter.com/amitiitbhu)
+- [Github](https://github.com/amitshekhariitbhu)
 - [Medium](https://medium.com/@amitshekhar)
 - [Facebook](https://www.facebook.com/amit.shekhar.iitbhu)
 
