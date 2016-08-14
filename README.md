@@ -37,6 +37,10 @@ So , all these types of cases are handled in this library
 
 <img src=https://raw.githubusercontent.com/amitshekhariitbhu/GlideBitmapPool/master/assets/gcsamplelog.png width=500 height=150 />
 
+### Show some :heart:
+[![GitHub stars](https://img.shields.io/github/stars/amitshekhariitbhu/GlideBitmapPool.svg?style=social&label=Star)](https://github.com/amitshekhariitbhu/GlideBitmapPool) [![GitHub forks](https://img.shields.io/github/forks/amitshekhariitbhu/GlideBitmapPool.svg?style=social&label=Fork)](https://github.com/amitshekhariitbhu/GlideBitmapPool/fork)  [![GitHub followers](https://img.shields.io/github/followers/amitshekhariitbhu.svg?style=social&label=Follow)](https://github.com/amitshekhariitbhu)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/amitiitbhu.svg?style=social)](https://twitter.com/amitiitbhu)
+
 ## Requirements
 
 Glide Bitmap Pool can be included in any Android or Java application. 
