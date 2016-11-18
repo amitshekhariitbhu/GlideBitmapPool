@@ -122,7 +122,7 @@ Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ```
 
 ### Find this project useful ? :heart:
-* Support it clicking the :star: button on the upper right of this page. :v:
+* Support it by clicking the :star: button on the upper right of this page. :v:
 
 ### Credits and references
 * [Glide](https://github.com/bumptech/glide) - As it uses the same bitmap pool that is used by [Glide](https://github.com/bumptech/glide)
