@@ -135,6 +135,9 @@ Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ### TODO
 * More Optimization with further updates.
 
+### Check out another awesome library for fast and simple networking in Android.
+* [Fast Android Networking Library](https://github.com/amitshekhariitbhu/Fast-Android-Networking)
+
 ### Contact - Let's become friend
 - [Twitter](https://twitter.com/amitiitbhu)
 - [Github](https://github.com/amitshekhariitbhu)
