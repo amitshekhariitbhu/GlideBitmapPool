@@ -31,7 +31,7 @@ few android version less than Kitkat only when we use inSampleSize = 1 , above t
 completely and few other issues.
 So , all these types of cases are handled in this library
 
-* [Detail Explanation can be found here](https://medium.com/@amitshekhar/how-to-use-bitmap-pool-in-android-56c71a55533c#.m41wqfk8h)
+* [Detail Explanation can be found here](https://blog.mindorks.com/how-to-use-bitmap-pool-in-android-56c71a55533c)
 
 #### GET RID OF : GC_FOR_ALLOC freed 1568K, 23% free 37664K/48844K, paused 141ms, total 143ms - (whenever you see this log , your application is lagging)
 
