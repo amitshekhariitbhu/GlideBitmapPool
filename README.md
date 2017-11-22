@@ -171,4 +171,5 @@ Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 ```
 
 ### Contributing to Glide Bitmap Pool
-Just make pull request. You are in!
+All pull requests are welcome, make sure to follow the [contribution guidelines](CONTRIBUTING.md)
+when you submit pull request.
