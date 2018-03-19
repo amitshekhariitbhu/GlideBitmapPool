@@ -149,9 +149,6 @@ Bitmap bitmap = GlideBitmapPool.getBitmap(width, height, config);
 - [Medium](https://medium.com/@amitshekhar)
 - [Facebook](https://www.facebook.com/amit.shekhar.iitbhu)
 
-### Have an issue or need a feature in Glide Bitmap Pool
-- [Create an issue](https://github.com/amitshekhariitbhu/GlideBitmapPool/issues/new)
-
 ### License
 ```
    Copyright (C) 2016 Amit Shekhar
