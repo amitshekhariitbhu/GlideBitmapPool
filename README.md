@@ -2,7 +2,7 @@
 
 [![Mindorks](https://img.shields.io/badge/mindorks-opensource-blue.svg)](https://mindorks.com/open-source-projects)
 [![Mindorks Community](https://img.shields.io/badge/join-community-blue.svg)](https://mindorks.com/join-community)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Glide%20Bitmap%20Pool-blue.svg?style=flat)](http://android-arsenal.com/details/1/3740)
+[![Mindorks Android Store](https://img.shields.io/badge/Mindorks%20Android%20Store-GlideBitmapPool-blue.svg?style=flat)](https://mindorks.com/android/store)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/amitshekhariitbhu/GlideBitmapPool/blob/master/LICENSE)
 
