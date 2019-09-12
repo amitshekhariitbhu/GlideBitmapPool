@@ -172,7 +172,7 @@ public class GlideBitmapFactory {
         }
     }
 
-    private static void rewindStream( InputStream is ) {
+    private static void rewindStream(InputStream is) {
         try {
             is.reset();
         } catch ( IOException e1 ) {
@@ -184,7 +184,7 @@ public class GlideBitmapFactory {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeResourceStream(res, value, is, pad, options);
-        rewindStream( is );
+        rewindStream(is);
         options.inSampleSize = 1;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             options.inMutable = true;
@@ -200,7 +200,7 @@ public class GlideBitmapFactory {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                 options.inBitmap = null;
             }
-            rewindStream( is );
+            rewindStream(is);
             return BitmapFactory.decodeResourceStream(res, value, is, pad, options);
         }
     }
@@ -209,7 +209,7 @@ public class GlideBitmapFactory {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeResourceStream(res, value, is, pad, options);
-        rewindStream( is );
+        rewindStream(is);
         options.inSampleSize = Util.calculateInSampleSize(options, reqWidth, reqHeight);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             options.inMutable = true;
@@ -225,7 +225,7 @@ public class GlideBitmapFactory {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                 options.inBitmap = null;
             }
-            rewindStream( is );
+            rewindStream(is);
             return BitmapFactory.decodeResourceStream(res, value, is, pad, options);
         }
     }
@@ -234,7 +234,7 @@ public class GlideBitmapFactory {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(is, null, options);
-        rewindStream( is );
+        rewindStream(is);
         options.inSampleSize = 1;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             options.inMutable = true;
@@ -250,7 +250,7 @@ public class GlideBitmapFactory {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                 options.inBitmap = null;
             }
-            rewindStream( is );
+            rewindStream(is);
             return BitmapFactory.decodeStream(is, null, options);
         }
     }
@@ -259,7 +259,7 @@ public class GlideBitmapFactory {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(is, null, options);
-        rewindStream( is );
+        rewindStream(is);
         options.inSampleSize = Util.calculateInSampleSize(options, reqWidth, reqHeight);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             options.inMutable = true;
@@ -275,7 +275,7 @@ public class GlideBitmapFactory {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                 options.inBitmap = null;
             }
-            rewindStream( is );
+            rewindStream(is);
             return BitmapFactory.decodeStream(is, null, options);
         }
     }
@@ -284,7 +284,7 @@ public class GlideBitmapFactory {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(is, outPadding, options);
-        rewindStream( is );
+        rewindStream(is);
         options.inSampleSize = 1;
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             options.inMutable = true;
@@ -300,7 +300,7 @@ public class GlideBitmapFactory {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                 options.inBitmap = null;
             }
-            rewindStream( is );
+            rewindStream(is);
             return BitmapFactory.decodeStream(is, outPadding, options);
         }
     }
@@ -309,7 +309,7 @@ public class GlideBitmapFactory {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(is, outPadding, options);
-        rewindStream( is );
+        rewindStream(is);
         options.inSampleSize = Util.calculateInSampleSize(options, reqWidth, reqHeight);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             options.inMutable = true;
@@ -325,7 +325,7 @@ public class GlideBitmapFactory {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
                 options.inBitmap = null;
             }
-            rewindStream( is );
+            rewindStream(is);
             return BitmapFactory.decodeStream(is, outPadding, options);
         }
     }
