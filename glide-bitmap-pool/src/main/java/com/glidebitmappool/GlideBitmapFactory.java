@@ -27,6 +27,7 @@ import android.util.TypedValue;
 import com.glidebitmappool.internal.Util;
 
 import java.io.FileDescriptor;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
