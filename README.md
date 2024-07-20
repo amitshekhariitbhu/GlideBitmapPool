@@ -28,9 +28,9 @@ few android version less than Kitkat only when we use inSampleSize = 1 , above t
 completely and few other issues.
 So , all these types of cases are handled in this library
 
-* [Refer this blog for detailed explanation](https://amitshekhar.me/blog/android-image-loading-library-use-bitmap-pool-for-responsive-ui)
+* [Refer this blog for detailed explanation](https://outcomeschool.com/blog/android-image-loading-library-use-bitmap-pool-for-responsive-ui)
 
-## [My Personal Blog - amitshekhar.me](https://amitshekhar.me/blog) - High-quality content to learn Android concepts.
+## Join **Outcome School** and get high paying tech job: [Outcome School](https://outcomeschool.com)
 
 #### GET RID OF : GC_FOR_ALLOC freed 1568K, 23% free 37664K/48844K, paused 141ms, total 143ms - (whenever you see this log , your application is lagging)
 
@@ -144,7 +144,7 @@ You can connect with me on:
 - [GitHub](https://github.com/amitshekhariitbhu)
 - [Facebook](https://www.facebook.com/amit.shekhar.iitbhu)
 
-[**Read all of my blogs here.**](https://amitshekhar.me/blog)
+[**Read all of our blogs here.**](https://outcomeschool.com/blog)
 
 ### License
 ```
