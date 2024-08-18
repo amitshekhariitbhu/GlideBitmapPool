@@ -44,10 +44,26 @@ Glide Bitmap Pool supports Android 2.3 (Gingerbread) and later.
 
 ## Using Glide Bitmap Pool in your application
 
-Add this in your build.gradle
+Add this in your `settings.gradle`:
 ```groovy
-compile 'com.amitshekhar.android:glide-bitmap-pool:0.0.1'
+maven { url 'https://jitpack.io' }
 ```
+
+If you are using `settings.gradle.kts`, add the following:
+```kotlin
+maven { setUrl("https://jitpack.io") }
+```
+
+Add this in your `build.gradle`
+```groovy
+implementation 'com.github.amitshekhariitbhu:GlideBitmapPool:1.0.0'
+```
+
+If you are using `build.gradle.kts`, add the following:
+```kotlin
+implementation("com.github.amitshekhariitbhu:GlideBitmapPool:1.0.0")
+```
+
 Then initialize it in onCreate() Method of application class, :
 ```java
 GlideBitmapPool.initialize(10 * 1024 * 1024); // 10mb max memory size
@@ -148,7 +164,7 @@ You can connect with me on:
 
 ### License
 ```
-   Copyright (C) 2022 Amit Shekhar
+   Copyright (C) 2024 Amit Shekhar
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
